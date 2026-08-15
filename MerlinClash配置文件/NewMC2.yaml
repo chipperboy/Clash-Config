@@ -183,7 +183,7 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 rule-providers: 
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
-  proxylite: { <<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/ifanrBook/ClashConfig/refs/heads/main/list/proxy.list"}
+  proxylite: { <<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/sev7enshare/Clash-Config/refs/heads/main/list/proxy.list"}
   ChatGPT_Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/openai.mrs"}
   Claude_Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Claude/Claude.list"}
   Meta AI_Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/MetaAi.list"}
