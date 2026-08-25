@@ -60,7 +60,7 @@ FilterOther: &FilterOther "^(?!.*(DIRECT|🇺🇸|美|US|🇭🇰|香港|HK|🇯
 # ============================= 3. 机场订阅位置 =============================
 proxy-providers:
   机场A:
-    url: "填写你的机场订阅链接在这双引号里面" # 直接贴原链接，依靠下面 UA 识别
+    url: "填写你的机场订阅链接在这双引号里面" # 修改你的机场A订阅地址
     <<: *provider_config
     user-agent: "clash.meta.mihomo"
     override:
@@ -68,7 +68,7 @@ proxy-providers:
       udp: true
 
   机场B:
-    url: "填写你的机场订阅链接在这双引号里面" # 原链接即可，不需要加 &flag=meta
+    url: "填写你的机场订阅链接在这双引号里面" # 修改你的机场B订阅地址
     <<: *provider_config
     user-agent: "clash.meta.mihomo"
     override:
@@ -86,11 +86,17 @@ proxy-groups:
     include-all: true
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SSID_1.png
 
-  # 2. 应用服务分流组 (已修改为 🤖 Ai智能)
+  # 2. 应用服务分流组
   - name: 🤖 Ai智能
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
     proxies: [🇺🇸 美国-故转, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, 🔃 自动选择, DIRECT]
+
+  # 加密货币策略组（预设优先选择新加坡、日本、台湾等非合规受限地区）
+  - name: ₿ Crypto
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cryptocurrency.png
+    proxies: [🇸🇬 新加坡-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🔃 自动选择, 🇭🇰 香港-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 🎥 YouTube
     type: select
@@ -345,6 +351,11 @@ rule-providers:
   category-pt: { <<: *domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-pt.mrs }
   tracker: { <<: *domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tracker.mrs }
 
+  OKX_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/okx.mrs" }
+  Bybit_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/bybit.mrs" }
+  Binance_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/binance.mrs" }
+  crypto_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-cryptocurrency.mrs" }
+
   cn: { <<: *domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs }
   cn_ip: { <<: *ip, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/cn.mrs }
   
@@ -388,7 +399,7 @@ rules:
   - RULE-SET,tracker,📥 PT和BT下载,no-resolve
   - RULE-SET,category-pt,📥 PT和BT下载,no-resolve
 
-  # 5. AI 服务分流 (已绑定到 🤖 Ai智能)
+  # 5. AI 服务分流
   - RULE-SET,openai,🤖 Ai智能
   - RULE-SET,category-ai-!cn,🤖 Ai智能
   - DOMAIN-SUFFIX,perplexity.ai,🤖 Ai智能
@@ -399,7 +410,13 @@ rules:
   - DOMAIN-SUFFIX,midjourney.com,🤖 Ai智能
   - DOMAIN-SUFFIX,lmarena.ai,🤖 Ai智能
 
-  # 6. 流媒体与社交平台
+  # 6. 加密货币/交易所分流
+  - RULE-SET,OKX_Domain,₿ Crypto
+  - RULE-SET,Bybit_Domain,₿ Crypto
+  - RULE-SET,Binance_Domain,₿ Crypto
+  - RULE-SET,crypto_domain,₿ Crypto
+
+  # 7. 流媒体与社交平台
   - RULE-SET,youtube,🎥 YouTube
   - RULE-SET,netflix,🎥 Netflix
   - RULE-SET,disney,🎥 Disney+
@@ -413,7 +430,7 @@ rules:
   - RULE-SET,tiktok,📲 TikTok
   - RULE-SET,porn,🔞 Porn
 
-  # 7. 科技巨头与服务
+  # 8. 科技巨头与服务
   - RULE-SET,google,🔍 Google
   - RULE-SET,apple@cn,DIRECT
   - RULE-SET,apple,🍎 Apple
@@ -422,10 +439,10 @@ rules:
   - RULE-SET,steam@cn,DIRECT
   - RULE-SET,steam,🎮 Steam
 
-  # 8. 国内外兜底
+  # 9. 国内外兜底
   - RULE-SET,geolocation-!cn,🌍 国外网站
   - RULE-SET,cn,DIRECT
   - RULE-SET,cn_ip,DIRECT,no-resolve
 
-  # 9. 最终未匹配到的流量
+  # 10. 最终未匹配到的流量
   - MATCH,🐟 漏网之鱼
