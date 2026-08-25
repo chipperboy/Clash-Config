@@ -1,13 +1,22 @@
 proxy-providers:
-  ReYY:
-    url: "httpsxxxxxx"
+  A机场:
+    url: "填写你的机场订阅链接在这双引号里面"
     type: http
     interval: 86400
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
-    proxy: 直连                     
+    proxy: 直连  #更新订阅的方式默认上走直连，你也可以指定某个策略组 比如：♻️ 自动选择   
+  B机场:
+    url: "填写你的机场订阅链接在这双引号里面"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连  #更新订阅的方式默认上走直连，你也可以指定某个策略组 比如：♻️ 自动选择           
 
 # 节点信息
 proxies:
