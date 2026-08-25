@@ -140,16 +140,12 @@ IP-CIDR,45.87.172.0/24,no-resolve
 
 # 域名后缀匹配
 DOMAIN-SUFFIX,sev7en.blog
-DOMAIN-SUFFIX,aiyaoyue.com
-DOMAIN-SUFFIX,yycloud.org
-DOMAIN-SUFFIX,yyg.ink
-DOMAIN-SUFFIX,imfaner.com
+
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,1e100
 DOMAIN-KEYWORD,zifaner
 DOMAIN-KEYWORD,zifanr
-DOMAIN-KEYWORD,ifaner
 DOMAIN-KEYWORD,sev7en
 
 # 国外DNS
@@ -194,6 +190,9 @@ DOMAIN-SUFFIX,itzmx.com
 DOMAIN-SUFFIX,iriseden.eu
 DOMAIN-SUFFIX,shittyurl.org
 DOMAIN-SUFFIX,i2p.rocks
+DOMAIN-SUFFIX,aiyaoyue.com
+DOMAIN-SUFFIX,yycloud.org
+DOMAIN-SUFFIX,yyg.ink
 DOMAIN-SUFFIX,shittyurl.org
 DOMAIN-SUFFIX,filetracker.xyz
 DOMAIN-SUFFIX,altrosky.nl
