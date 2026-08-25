@@ -12,20 +12,29 @@ proxy-providers:
     url: "https://xxxxxxxxx" # 请在此处粘贴你的实际订阅链接
     type: http
     interval: 86400
+    user-agent: "clash.meta.mihomo"
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
+      url: http://www.apple.com/library/test/success.html
       interval: 300
-    proxy: 直连      
+    proxy: 直连
+    override:
+      additional-prefix: "[ReYY]"
+      udp: true
+
   iFarCloud:
     url: "https://xxxxxxxx" # 请在此处粘贴你的实际订阅链接
     type: http
     interval: 86400
+    user-agent: "clash.meta.mihomo"
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
+      url: http://www.apple.com/library/test/success.html
       interval: 300
-    proxy: 直连           
+    proxy: 直连
+    override:
+      additional-prefix: "[iFar]"
+      udp: true
 
 proxies:
   - {name: 直连, type: direct}
@@ -117,7 +126,7 @@ proxy-groups:
   - {name: 🇺🇲 美国节点, type: select, include-all: true, filter: "(?i)美|us|unitedstates|united states"}
   - {name: 🇹🇼 台湾节点, type: select, include-all: true, filter: "(?i)台|tw|taiwan"}
   - {name: 🇰🇷 韩国节点, type: select, include-all: true, filter: "(?i)韩|kr|korea"}
-  - {name: 🔯 香港故转, type: fallback, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: 🔯 香港故转, type: fallback, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|美)).)*$"}
   - {name: 🔯 日本故转, type: fallback, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$"}
   - {name: 🔯 狮城故转, type: fallback, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(台|日|韩|深|美)).)*$"}
   - {name: 🔯 美国故转, type: fallback, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|韩|新|日)).)*$"}
@@ -135,6 +144,8 @@ proxy-groups:
 
 # 规则匹配
 rules:
+  # 阻止国外 QUIC (UDP 443)，解决 YouTube 起播卡顿问题
+  - AND,((NETWORK,UDP),(DST-PORT,443),(NOT,((RULE-SET,cn_domain)))),REJECT
   - RULE-SET,private_ip,直连,no-resolve
   - RULE-SET,private_domain,直连
   - DOMAIN-SUFFIX,yycloud.org,🚀 默认代理
