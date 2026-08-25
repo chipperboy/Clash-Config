@@ -196,7 +196,7 @@ rules:
   - RULE-SET,twitter_ip,𝕏 X,no-resolve
   - RULE-SET,geolocation-!cn,🚀 默认代理
   - RULE-SET,cn_domain,直连
-  - RULE-SET,cn_ip,直连
+  - RULE-SET,cn_ip,直连,no-resolve
   - MATCH,🐟 漏网之鱼
 
 # 规则集
