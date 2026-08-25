@@ -60,7 +60,7 @@ FilterOther: &FilterOther "^(?!.*(DIRECT|🇺🇸|美|US|🇭🇰|香港|HK|🇯
 # ============================= 3. 机场订阅位置 =============================
 proxy-providers:
   机场A:
-    url: "填写你的机场订阅链接在这双引号里面" # 修改你的机场A订阅地址
+    url: "填写你的机场订阅链接在这双引号里面"
     <<: *provider_config
     user-agent: "clash.meta.mihomo"
     override:
@@ -68,7 +68,7 @@ proxy-providers:
       udp: true
 
   机场B:
-    url: "填写你的机场订阅链接在这双引号里面" # 修改你的机场B订阅地址
+    url: "填写你的机场订阅链接在这双引号里面"
     <<: *provider_config
     user-agent: "clash.meta.mihomo"
     override:
@@ -86,97 +86,108 @@ proxy-groups:
     include-all: true
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SSID_1.png
 
+  - name: 🖐️ 手动选择
+    type: select
+    url: http://www.apple.com/library/test/success.html
+    interval: 300
+    include-all: true
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png
+
   # 2. 应用服务分流组
   - name: 🤖 Ai智能
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
-    proxies: [🇺🇸 美国-故转, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, 🔃 自动选择, DIRECT]
+    proxies: [🇺🇸 美国-故转, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, 🔃 自动选择, 🖐️ 手动选择, DIRECT]
 
-  # 加密货币策略组（预设优先选择新加坡、日本、台湾等非合规受限地区）
+  - name: 🐙 GitHub
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇺🇸 美国-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+
   - name: ₿ Crypto
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cryptocurrency.png
-    proxies: [🇸🇬 新加坡-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🔃 自动选择, 🇭🇰 香港-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🇸🇬 新加坡-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 🎥 YouTube
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
-    proxies: [🔃 自动选择, 🇭🇰 香港-故转, 🇺🇸 美国-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇺🇸 美国-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 🎥 Netflix
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
-    proxies: [🔃 自动选择, 🇸🇬 新加坡-故转, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇸🇬 新加坡-故转, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 🎥 Disney+
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney.png
-    proxies: [🔃 自动选择, 🇸🇬 新加坡-故转, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇸🇬 新加坡-故转, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 🎥 HBO
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HBO_Max.png
-    proxies: [🇺🇸 美国-故转, 🔃 自动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🇺🇸 美国-故转, 🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 📲 Telegram
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
-    proxies: [🇸🇬 新加坡-故转, 🔃 自动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🇸🇬 新加坡-故转, 🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 📲 Twitter
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
-    proxies: [🔃 自动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 📲 Instagram
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Instagram.png
-    proxies: [🔃 自动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 📲 Facebook
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png
-    proxies: [🔃 自动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 📲 WhatsApp
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/WeChat.png
-    proxies: [🔃 自动选择, 🇭🇰 香港-故转, 🇸🇬 新加坡-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇸🇬 新加坡-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 🎵 Spotify
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
-    proxies: [🔃 自动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 🔍 Google
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
-    proxies: [🔃 自动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇺🇸 美国-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 🍎 Apple
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
-    proxies: [DIRECT, 🔃 自动选择, 🇭🇰 香港-故转, 🇺🇸 美国-故转, 🇯🇵 日本-故转]
+    proxies: [DIRECT, 🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇺🇸 美国-故转, 🇯🇵 日本-故转]
 
   - name: 💻 Microsoft
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
-    proxies: [DIRECT, 🔃 自动选择, 🇭🇰 香港-故转, 🇺🇸 美国-故转, 🇯🇵 日本-故转]
+    proxies: [DIRECT, 🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇺🇸 美国-故转, 🇯🇵 日本-故转]
 
   - name: 🎮 Steam
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
-    proxies: [DIRECT, 🔃 自动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇺🇸 美国-故转]
+    proxies: [DIRECT, 🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇺🇸 美国-故转]
 
   - name: 🔞 Porn
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Pornhub.png
-    proxies: [🔃 自动选择, 🇺🇸 美国-故转, 🇯🇵 日本-故转, 🇭🇰 香港-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇺🇸 美国-故转, 🇯🇵 日本-故转, 🇭🇰 香港-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, DIRECT]
 
   - name: 📲 TikTok
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
-    proxies: [🇸🇬 新加坡-故转, 🇯🇵 日本-故转, 🇺🇸 美国-故转, 🇹🇼 台湾-故转, 🇰🇷 韩国-故转, 🔃 自动选择]
+    proxies: [🇸🇬 新加坡-故转, 🇯🇵 日本-故转, 🇺🇸 美国-故转, 🇹🇼 台湾-故转, 🇰🇷 韩国-故转, 🔃 自动选择, 🖐️ 手动选择]
 
   - name: 📥 PT和BT下载
     type: select
@@ -186,12 +197,12 @@ proxy-groups:
   - name: 🌍 国外网站
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
-    proxies: [🔃 自动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇺🇸 美国-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇺🇸 美国-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   - name: 🐟 漏网之鱼
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
-    proxies: [🔃 自动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇺🇸 美国-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
+    proxies: [🔃 自动选择, 🖐️ 手动选择, 🇭🇰 香港-故转, 🇯🇵 日本-故转, 🇺🇸 美国-故转, 🇹🇼 台湾-故转, 🇸🇬 新加坡-故转, 🇰🇷 韩国-故转, 🇬🇧 英国-故转, 🌍 其他国家-故转, DIRECT]
 
   # 3. 地区故障转移 (Fallback) 逻辑层
   - name: 🇭🇰 香港-故转
@@ -342,8 +353,11 @@ proxy-groups:
 rule-anchor:
   ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
   domain: &domain { type: http, interval: 86400, behavior: domain, format: mrs }
+  class: &class { type: http, interval: 86400, behavior: classical } # 用于解析纯文本 .list / classical 格式规则
 
 rule-providers:
+  proxylite: { <<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/sev7enshare/Clash-Config/refs/heads/main/list/proxy.list" }
+
   private: { <<: *domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs }
   private_ip: { <<: *ip, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/private.mrs }
   category-ads-all: { <<: *domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs }
@@ -351,10 +365,14 @@ rule-providers:
   category-pt: { <<: *domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-pt.mrs }
   tracker: { <<: *domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tracker.mrs }
 
+  # Crypto 规则集
   OKX_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/okx.mrs" }
   Bybit_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/bybit.mrs" }
   Binance_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/binance.mrs" }
   crypto_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-cryptocurrency.mrs" }
+
+  # GitHub 规则集
+  github: { <<: *domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs }
 
   cn: { <<: *domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs }
   cn_ip: { <<: *ip, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/cn.mrs }
@@ -399,6 +417,8 @@ rules:
   - RULE-SET,tracker,📥 PT和BT下载,no-resolve
   - RULE-SET,category-pt,📥 PT和BT下载,no-resolve
 
+  - RULE-SET,proxylite,🔃 自动选择
+
   # 5. AI 服务分流
   - RULE-SET,openai,🤖 Ai智能
   - RULE-SET,category-ai-!cn,🤖 Ai智能
@@ -416,7 +436,10 @@ rules:
   - RULE-SET,Binance_Domain,₿ Crypto
   - RULE-SET,crypto_domain,₿ Crypto
 
-  # 7. 流媒体与社交平台
+  # 7. GitHub 分流（置于 Microsoft 之前，防止被微软直连规则误拦截）
+  - RULE-SET,github,🐙 GitHub
+
+  # 8. 流媒体与社交平台
   - RULE-SET,youtube,🎥 YouTube
   - RULE-SET,netflix,🎥 Netflix
   - RULE-SET,disney,🎥 Disney+
@@ -430,7 +453,7 @@ rules:
   - RULE-SET,tiktok,📲 TikTok
   - RULE-SET,porn,🔞 Porn
 
-  # 8. 科技巨头与服务
+  # 9. 科技巨头与服务
   - RULE-SET,google,🔍 Google
   - RULE-SET,apple@cn,DIRECT
   - RULE-SET,apple,🍎 Apple
@@ -439,10 +462,10 @@ rules:
   - RULE-SET,steam@cn,DIRECT
   - RULE-SET,steam,🎮 Steam
 
-  # 9. 国内外兜底
+  # 10. 国内外兜底
   - RULE-SET,geolocation-!cn,🌍 国外网站
   - RULE-SET,cn,DIRECT
   - RULE-SET,cn_ip,DIRECT,no-resolve
 
-  # 10. 最终未匹配到的流量
+  # 11. 最终未匹配到的流量
   - MATCH,🐟 漏网之鱼
